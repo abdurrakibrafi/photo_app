@@ -9,7 +9,7 @@ Future<List<PhotoGalleryModel>> getPhotos() async {
 
   if (response.statusCode == 200) {
     final List<dynamic> data = json.decode(response.body);
-    log('================response data $data');
+
     return data.map((json) => PhotoGalleryModel.fromJson(json)).toList();
   } else {
     throw Exception('Failed to load photos');

@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:photo_app/model/gallery_model.dart';
@@ -52,7 +54,21 @@ class _HomeScreensState extends State<HomeScreens> {
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: ListTile(
-                      leading: Image.network(photo.url! ?? " "),
+                      leading: Image.network(
+                        photo.url!,
+                        loadingBuilder: (BuildContext context, Widget child,
+                            ImageChunkEvent? loadingProgress) {
+                          if (loadingProgress == null) {
+                            return child;
+                          } else {
+                            return CircularProgressIndicator();
+                          }
+                        },
+                        errorBuilder: (BuildContext context, Object error,
+                            StackTrace? stackTrace) {
+                          return Text('');
+                        },
+                      ),
                       title: Text(photo.title!),
                     ),
                   ),
