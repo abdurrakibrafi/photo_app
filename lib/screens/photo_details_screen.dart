@@ -34,7 +34,6 @@ class _PhotoDetailsScreen extends State<PhotoDetailsScreen> {
             children: [
               Image.network(
                 widget.imageUrl,
-                width: 370,
               ),
               SizedBox(height: 10),
               Text(

@@ -55,7 +55,7 @@ class _HomeScreensState extends State<HomeScreens> {
                     padding: const EdgeInsets.all(8.0),
                     child: ListTile(
                       leading: Image.network(
-                        photo.url!,
+                        photo.thumbnailUrl!,
                         loadingBuilder: (BuildContext context, Widget child,
                             ImageChunkEvent? loadingProgress) {
                           if (loadingProgress == null) {
